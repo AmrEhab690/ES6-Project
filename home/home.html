@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>E-commerce Home</title>
+    <link rel="stylesheet" href="./home.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">Shoply</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">Shop</a>
+            <a href="#">About</a>
+        </nav>
+        <div class="user-actions">
+            <a href="../AddToCart/add.html"><i class="fas fa-shopping-cart"></i></a>
+            <span id="username"></span>
+            <a href="#" id="logoutBtn">Logout</a>
+        </div>
+
+    </header>
+
+    <section class="slider">
+        <img src="./New folder/slider4.avif" class="active" alt="Slide 1">
+        <img src="./New folder/SLIIIIID.avif" alt="Slide 4">
+        <img src="./New folder/sliiiiid2.avif" alt="Slide 2">
+        <img src="./New folder/slid2.avif" alt="Slide 4">
+        <img src="./New folder/slid3.avif" alt="Slide 5">
+        <img src="./New folder/slid.avif" alt="Slide 6">
+
+
+        <button class="slider-btn prev" id="prevSlide">&#10094;</button>
+        <button class="slider-btn next" id="nextSlide">&#10095;</button>
+        <div id="dotsContainer" class="dots-container"></div>
+
+    </section>
+
+    <section class="products-section">
+        <h2>Our Products</h2>
+
+        <div class="top-filters">
+            <select id="priceFilter">
+        <option value="all">Price</option>
+        <option value="low">Low ($0 - $50)</option>
+        <option value="medium">Medium ($51 - $100)</option>
+        <option value="high">High ($101 and above)</option>
+      </select>
+
+            <select id="sizeFilter">
+        <option value="all">Size</option>
+        <option value="s">Size S</option>
+        <option value="m">Size M</option>
+        <option value="l">Size L</option>
+      </select>
+
+            <button id="filterBtn">Filter</button>
+        </div>
+
+        <div class="products-container">
+            <aside class="categories">
+                <button class="category-btn" data-category="all">All</button>
+                <button class="category-btn" data-category="clothes">Clothes</button>
+                <button class="category-btn" data-category="makeup">Makeup</button>
+                <button class="category-btn" data-category="phones">Phones</button>
+                <button class="category-btn" data-category="electronics">Electronics</button>
+            </aside>
+
+            <div class="product-grid" id="productGrid">
+                <!-- Product Cards -->
+                <div class="product-card" data-category="books" data-price="20" data-size="m">
+                    <img src="./New folder/book.jpg" alt="product">
+                    <h3>Book</h3>
+                    <div class="price-discount">
+                        <p>$20</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+
+                    <p class="product-info">A thrilling mystery novel that keeps you hooked till the last page.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="clothes" data-price="15" data-size="l">
+                    <img src="./New folder/tshirt.jpg" alt="product">
+                    <h3>T-Shirt</h3>
+                    <div class="price-discount">
+                        <p>$15</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★☆
+                    </div>
+                    <p class="product-info">Cotton unisex t-shirt with breathable fabric, perfect for summer.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+
+                <div class="product-card" data-category="phones" data-price="999" data-size="m">
+                    <img src="./New folder/iphone.jpg" alt="product">
+                    <h3>iPhone</h3>
+                    <div class="price-discount">
+                        <p>$999</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info">Apple iPhone with A15 chip, 5G, and Super Retina XDR display.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="electronics" data-price="50" data-size="m">
+                    <img src="./New folder/headphone.jpg" alt="product">
+                    <h3>Headphones</h3>
+                    <div class="price-discount">
+                        <p>$50</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info">Wireless over-ear headphones with noise cancellation and deep bass.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="clothes" data-price="40" data-size="l">
+                    <img src="./New folder/jeans.jpg" alt="product">
+                    <h3>Jeans</h3>
+                    <div class="price-discount">
+                        <p>$40</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info">Denim jeans with classic fit and stretchable material for comfort.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="makeup" data-price="10" data-size="s">
+                    <img src="./New folder/lipstick.jpg" alt="product">
+                    <h3>Lipstick</h3>
+                    <div class="price-discount">
+                        <p>$10</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★☆
+                    </div>
+                    <p class="product-info">Long-lasting matte lipstick with vibrant color and smooth texture.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+
+
+                <div class="product-card" data-category="phones" data-price="799" data-size="m">
+                    <img src="./New folder/galaxy.jpg" alt="product">
+                    <h3>Samsung Galaxy</h3>
+                    <div class="price-discount">
+                        <p>$799</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info">Flagship Android smartphone with AMOLED display and quad camera.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="clothes" data-price="70" data-size="m">
+                    <img src="./New folder/jacket.jpg" alt="product">
+                    <h3>Jacket</h3>
+                    <div class="price-discount">
+                        <p>$70</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info">Warm winter jacket with windproof and waterproof features.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="electronics" data-price="120" data-size="m">
+                    <img src="./New folder/smartwatch.jpg" alt="product">
+                    <h3>Smartwatch</h3>
+                    <div class="price-discount">
+                        <p>$120</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info">Fitness smartwatch with heart rate monitor, GPS, and long battery life.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="electronics" data-price="200" data-size="m">
+                    <img src="./New folder/laptop.jpg" alt="product">
+                    <h3>Laptop</h3>
+                    <div class="price-discount">
+                        <p>$200</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info">Compact and lightweight laptop ideal for students and remote work.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="clothes" data-price="25" data-size="m">
+                    <img src="./New folder/hoodie.jpg" alt="product">
+                    <h3>Hoodie</h3>
+                    <div class="price-discount">
+                        <p>$25</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info">Cozy fleece hoodie perfect for chilly evenings and casual wear.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="phones" data-price="599" data-size="m">
+                    <img src="./New folder/oneplus.jpg" alt="product">
+                    <h3>OnePlus</h3>
+                    <div class="price-discount">
+                        <p>$599</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info">High-performance Android phone with fast charging and smooth UI.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="clothes" data-price="90" data-size="l">
+                    <img src="./New folder/sweater.jpg" alt="product">
+                    <h3>Sweater</h3>
+                    <div class="price-discount">
+                        <p>$90</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★☆
+                    </div>
+                    <p class="product-info">Knitted wool sweater providing warmth and comfort in winter.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="makeup" data-price="30" data-size="s">
+                    <img src="./New folder/foundation.jpg" alt="product">
+                    <h3>Foundation</h3>
+                    <div class="price-discount">
+                        <p>$30</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+
+                    <span class="badge">New</span>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info">Full coverage liquid foundation with SPF and hydrating formula.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="electronics" data-price="350" data-size="m">
+                    <img src="./New folder/speaker.jpg" alt="product">
+                    <h3>Bluetooth Speaker</h3>
+                    <div class="price-discount">
+                        <p>$350</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <div class="rating">
+                        ★★★☆
+                    </div>
+                    <p class="product-info">Portable Bluetooth speaker with 360° sound and waterproof design.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="electronics" data-price="75" data-size="m">
+                    <img src="./New folder/charger.jpg" alt="product">
+                    <h3>Fast Charger</h3>
+                    <div class="price-discount">
+                        <p>$75</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <div class="rating">
+                        ★★★☆
+                    </div>
+                    <p class="product-info">USB-C fast charger compatible with most modern smartphones and tablets.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="clothes" data-price="50" data-size="m">
+                    <img src="./New folder/graphic.jpg" alt="product">
+                    <h3>Graphic T-shirt</h3>
+                    <div class="price-discount">
+                        <p>$50</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <div class="rating">
+                        ★★★☆
+                    </div>
+                    <p class="product-info">Trendy graphic tee with bold print and soft fabric for all-day comfort.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="clothes" data-price="35" data-size="l">
+                    <img src="./New folder/casual.jpg" alt="product">
+                    <h3>Casual Shirt</h3>
+                    <div class="price-discount">
+                        <p>$35</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <div class="rating">
+                        ★★★☆
+                    </div>
+                    <p class="product-info">Casual button-up shirt with classic collar and relaxed fit.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="electronics" data-price="340" data-size="m">
+                    <img src="./New folder/gigabyte.jpg" alt="product">
+                    <h3>Gigabyte GPU</h3>
+                    <div class="price-discount">
+                        <p>$340</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info">Gigabyte GeForce RTX 3050 WINDFORCE OC 6GB Graphics Card.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="electronics" data-price="260" data-size="m">
+                    <img src="./New folder/intel.jpg" alt="product">
+                    <h3>Intel CPU</h3>
+                    <div class="price-discount">
+                        <p>$260</p>
+                        <span class="discount-label">20% OFF</span>
+                    </div>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="product-info"> Intel Core i5 14400F , 10 cores (6 P-cores + 4 E-cores) and 16 threads.</p>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+
+
+            </div>
+
+    </section>
+    <div class="content d-flex align-items-center bg-light">
+    </div>
+
+    <footer class="footer-20192">
+        <div class="site-section">
+            <div class="container">
+
+                <div class="cta d-block d-md-flex align-items-center px-5">
+                    <div>
+                        <h2 class="mb-0">Ready for a next purchase?</h2>
+                        <h3 class="text-dark">Let's get started!</h3>
+                    </div>
+                    <div class="ml-auto">
+                        <a href="#" class="btn btn-dark rounded-0 py-3 px-5">Contact us</a>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-sm">
+                        <a href="#" class="footer-logo">Shoply</a>
+                        <p class="copyright">
+                            <small>&copy; 2025</small>
+                        </p>
+                    </div>
+                    <div class="col-sm">
+                        <h3>Customers</h3>
+                        <ul class="list-unstyled links">
+                            <li><a href="#">Buyer</a></li>
+                            <li><a href="#">Supplier</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm">
+                        <h3>Company</h3>
+                        <ul class="list-unstyled links">
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm">
+                        <h3>Further Information</h3>
+                        <ul class="list-unstyled links">
+                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>Follow us</h3>
+                        <ul class="list-unstyled social-icons">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fas fa-paper-plane"></i></a></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="toast" class="toast"></div>
+
+        <script>
+            const productCards = document.querySelectorAll('.product-card');
+
+            productCards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('add-btn')) return;
+
+                    const name = card.querySelector('h3').textContent;
+                    const image = card.querySelector('img').src;
+                    const price = card.getAttribute('data-price');
+                    const size = card.getAttribute('data-size');
+                    const category = card.getAttribute('data-category');
+
+                    const url = new URL('../product/product.html', window.location.origin);
+                    url.searchParams.append('name', name);
+                    url.searchParams.append('image', image);
+                    url.searchParams.append('price', price);
+                    url.searchParams.append('size', size);
+                    url.searchParams.append('category', category);
+
+                    window.location.href = url.toString();
+                });
+            });
+        </script>
+
+        <script src="./home.js"></script>
+
+</body>
+
+</html>

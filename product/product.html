@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .product-details {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background-color: #fff;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .product-details:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+        }
+
+        .product-details img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: contain;
+            height: 400px;
+        }
+
+        .product-info h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .product-info p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ff7f50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #ff6347;
+        }
+
+        .back-btn {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            width: fit-content;
+            font-size: 1.1rem;
+        }
+
+        .back-btn:hover {
+            background-color: #555;
+        }
+.toast {
+    position: fixed;
+top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+}
+.product-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 30px auto;
+    max-width: 900px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-reviews {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+}
+
+.product-reviews h2 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.review {
+    background-color: #fff;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-size: 0.9rem;
+}
+
+.review p {
+    color: #555;
+}
+
+.review .review-author {
+    font-weight: bold;
+    color: #333;
+}
+
+.review:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-to-cart-btn {
+    background-color: #ff7f50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #ff6347;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="product-details">
+        <img id="product-img" src="" alt="Product Image" />
+        <div class="product-info">
+            <h1 id="product-name">Loading...</h1>
+            <p><strong>Price:</strong> <span id="product-price"></span></p>
+            <p><strong>Size:</strong> <span id="product-size"></span></p>
+            <p><strong>Category:</strong> <span id="product-category"></span></p>
+           
+            <div class="product-reviews">
+                <h2>Customer Reviews</h2>
+                <div id="reviews-container">
+
+                </div>
+            </div>
+             <button id="add-to-cart-btn" class="add-to-cart-btn">Add to Cart</button>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+
+    <a href="../home/home.html" class="back-btn">← Back to Home</a>
+
+    <script> 
+     document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const name = urlParams.get('name');
+        const image = urlParams.get('image');
+        const price = urlParams.get('price');
+        const size = urlParams.get('size');
+        const category = urlParams.get('category');
+
+        const productImg = document.getElementById('product-img');
+        const productName = document.getElementById('product-name');
+        const productPrice = document.getElementById('product-price');
+        const productSize = document.getElementById('product-size');
+        const productCategory = document.getElementById('product-category');
+        const addToCartBtn = document.getElementById('add-to-cart-btn');
+        const reviewsContainer = document.getElementById('reviews-container');
+
+        if (productImg) productImg.src = image;
+        if (productName) productName.textContent = name;
+        if (productPrice) productPrice.textContent = `$${price}`;
+        if (productSize) productSize.textContent = size;
+        if (productCategory) productCategory.textContent = category;
+
+        function checkIfProductInCart() {
+            const username = localStorage.getItem("username");
+            const cart = JSON.parse(localStorage.getItem(username + '_cart')) || [];
+
+            const existingProductIndex = cart.findIndex(item =>
+                item.name === name &&
+                item.size === size &&
+                item.category === category
+            );
+
+            if (existingProductIndex > -1) {
+                addToCartBtn.textContent = "Added ✅";
+                addToCartBtn.disabled = true; 
+            }
+        }
+
+        checkIfProductInCart();
+
+        addToCartBtn.addEventListener('click', () => {
+            const username = localStorage.getItem("username");
+            let cart = JSON.parse(localStorage.getItem(username + '_cart')) || [];
+
+            const existingProductIndex = cart.findIndex(item =>
+                item.name === name &&
+                item.size === size &&
+                item.category === category
+            );
+
+            if (existingProductIndex > -1) {
+                cart[existingProductIndex].quantity += 1;
+            } else {
+                const product = {
+                    name: name,
+                    image: image,
+                    price: price,
+                    size: size,
+                    category: category,
+                    quantity: 1
+                };
+                cart.push(product);
+            }
+
+            localStorage.setItem(username + '_cart', JSON.stringify(cart));
+
+            addToCartBtn.textContent = "Added ✅";
+            addToCartBtn.disabled = true;
+
+            function showToast(message) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    
+    toast.textContent = message;
+    toast.classList.add('show');
+    
+    clearTimeout(window.toastTimeout);
+    window.toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);     
+}
+
+            showToast(`${name} has been added to your cart!`);
+        });
+        const staticReviews = [
+        { author: "John Doe", text: "Great product! Exactly what I was looking for." },
+        { author: "Jane Smith", text: "The quality is amazing. Totally worth the price!" },
+    ];
+
+    staticReviews.forEach(review => {
+        const reviewElement = document.createElement('div');
+        reviewElement.classList.add('review');
+        reviewElement.innerHTML = `
+            <p class="review-author">${review.author} says:</p>
+            <p>${review.text}</p>
+        `;
+        reviewsContainer.appendChild(reviewElement);
+    });
+    });
+    </script>
+
+</body>
+</html>

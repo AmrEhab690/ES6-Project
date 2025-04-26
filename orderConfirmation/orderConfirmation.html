@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Confirmation</title>
+  <link rel="stylesheet" href="./orderConfirmation.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Shoply</div>
+    <nav>
+      <a href="../home/home.html">Home</a>
+      <a href="../home/home.html">Shop</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="confirmation">
+    <div class="message">
+      <h1>🎉 Thank You for Your Order!</h1>
+      <p>Your order has been successfully placed and is now being processed.</p>
+      <p class="order-id">Order ID: <strong>#<span id="orderId"></span></strong></p>
+      <a href="../home/home.html" class="btn">Back to Home</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shoply. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const orderId = Math.floor(Math.random() * 900000 + 100000);
+    document.getElementById("orderId").textContent = orderId;
+
+    localStorage.removeItem("cart");
+  </script>
+</body>
+</html>

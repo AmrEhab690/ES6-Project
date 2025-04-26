@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="./bootstrap.min.css">
+  <link rel="stylesheet" href="./add.css">
+  
+</head>
+<body>
+  <header>
+    <div class="logo">Shoply</div>
+    <nav>
+      <a href="../home/home.html">Home</a>
+      <a href="#">Contact</a>
+      <a href="shop.html">Shop</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="user-actions">
+        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        <span id="username"></span>
+        <a href="#" id="logoutBtn">Logout</a>
+      </div>
+  </header>
+
+  <section class="cart-section">
+    <h2>Your Cart</h2>
+    <div class="cart-items-container" id="cartItems">
+
+    </div>
+
+    <div class="cart-summary">
+      <h3>Total: $<span id="totalAmount">0</span></h3>
+      <button id="checkoutBtn">Checkout</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shoply. All rights reserved.</p>
+  </footer>
+  <div id="toast" class="toast"></div>
+
+
+  <script src="./add.js"></script>
+</body>
+</html>
